@@ -1,0 +1,3 @@
+git remote add origin https://github.com/avilsoft/movietok 
+git remote add origin https://github.com/avilsoft/movietok 
+git push -u origin --all
