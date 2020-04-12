@@ -3,7 +3,6 @@ module.exports = {
    head: {
       htmlAttrs: {
          lang: 'es',
-         // amp: true
       },
       title: process.env.npm_package_name || '',
       meta: [
@@ -16,35 +15,33 @@ module.exports = {
          // { rel: 'stylesheet', type:'text/css', href: '~/assets/css/styles.css' }
       ]
    },
-   
-  /*  ** Customize the progress-bar color  */
-  loading: { color: '#fff' },
-  
-  /*  ** Global CSS  */
-  css: [
-     '@/assets/css/styles.css'
-  ],
-  /*  ** Plugins to load before mounting the App  */
-  plugins: [  ],
-  /*  ** Nuxt.js dev-modules  */
-  buildModules: [  ],
-  /*  ** Nuxt.js modules  */
-  modules: [
-    'bootstrap-vue/nuxt',
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-  ],
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
-  axios: {  },
-  /*  ** Build configuration  */
-  build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
-  }
+
+   /*  ** Customize the progress-bar color  */
+   loading: { color: '#fff' },
+
+   /*  ** Global CSS  */
+   css: [
+      '@/assets/css/styles.css'
+   ],
+   /*  ** Plugins to load before mounting the App  */
+   plugins: [],
+   /*  ** Nuxt.js dev-modules  */
+   buildModules: [],
+   /*  ** Nuxt.js modules  */
+   modules: [
+      'bootstrap-vue/nuxt',
+      '@nuxtjs/axios',
+      '@nuxtjs/pwa',
+   ],
+   /*
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+   axios: {},
+   /*  ** Build configuration  */
+   build: {
+      /*    ** You can extend webpack config here    */
+      extend(config, ctx) {
+      }
+   }
 }

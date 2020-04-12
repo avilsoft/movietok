@@ -39,7 +39,7 @@ export default {
          movie:[]
       }
    },
-   asyncData({app, params}){ 
+   asyncData({app, params}){
       if(params){
          let Key = 'apikey=e5b8a5a3'
          let URLAPI = `http://www.omdbapi.com/?i=${params.id}&${Key}`
@@ -51,22 +51,22 @@ export default {
             })
       }
    },
-   head () {
-    return {
-      title: this.movie.Title,
-      meta: [
-        {
-           hid: 'description',
-           name: 'description',
-           content: this.movie.Plot
-        },
-        {
-           hid: 'image', 
-           property: 'og:image',
-           content: this.movie.Poster
-        }
-      ]
-    }
+   head(){
+      return {
+         title: this.movie.Title,
+         meta: [
+            {
+               hid: 'description',
+               name: 'description',
+               content: this.movie.Plot
+            },
+            {
+               hid: 'image', 
+               property: 'og:image',
+               content: this.movie.Poster
+            }
+         ]
+      }
    }
 }
 </script>

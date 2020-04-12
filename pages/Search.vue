@@ -3,7 +3,7 @@
       <div>
          <div class="row">
             <div class="col-12">
-               <h3>Busqueda</h3>
+               <h3>Busqueda</h3> 
                <form @submit.prevent="sendData" class="form-s">
                   <input v-model="termino" type="search" placeholder="Buscar...">
                   <b-button size="sm" class="my-2 my-sm-0" type="submit">Buscar</b-button>
@@ -38,7 +38,6 @@
 export default {
    data(){
       return{
-         termino:null,
          movies:[]
       }
    },
@@ -69,6 +68,20 @@ export default {
          
       }
    },
+   computed:{
+      GetTermino(){
+         return this.$store.state.termino
+      },
+      termino:{
+         get(){
+            return this.$store.state.termino
+         },
+         set(value){
+            let val = value.trim()
+            this.$store.commit('SET_TERMINO', val)
+         }
+      },
+   },
    asyncData({params, app}){
       let Key = 'apikey=e5b8a5a3'
       let URLAPI = `http://www.omdbapi.com/?s=iron&${Key}`
@@ -79,7 +92,6 @@ export default {
             }
          })
    },
- 
 }
 </script>
 

@@ -8,11 +8,11 @@
       <b-collapse id="nav-collapse" is-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-         <!-- <b-nav-form  @submit.prevent="sendData">
+         <b-nav-form v-if="$route.name != 'search'" @submit.prevent="sendData">
             <b-form-input size="sm" v-model="termino" class="mr-sm-2" placeholder="Buscar..."></b-form-input>
             <b-button size="sm" class="my-2 my-sm-0" type="submit">Buscar</b-button>
-         </b-nav-form> -->
-         <!-- <b-nav-item-dropdown right> 
+         </b-nav-form>
+         <!-- <b-nav-item-dropdown right>
             <template v-slot:button-content>
                <b>User</b>
             </template>
@@ -26,13 +26,13 @@
          <li class="nav-item">
             <nuxt-link to="/contacts" class="nav-link">Contactos</nuxt-link>
          </li>
-         
+
          <li class="nav-item">
             <nuxt-link to="/abouts" class="nav-link">Nosotros</nuxt-link>
          </li>
         <!-- <b-nav-item href="/about">Nosotros</b-nav-item> -->
         <!-- <b-nav-item href="#" disabled>Disabled</b-nav-item> -->
-      </b-navbar-nav> 
+      </b-navbar-nav>
     </b-collapse>
   </b-navbar>
   <!-- </header> -->
@@ -41,14 +41,23 @@
 <script>
 export default {
    name:'header-templ',
-   data(){
-      return{
-         termino:null
-      }
+   computed:{
+      termino:{
+         get(){
+            return this.$store.state.termino
+         },
+         set(value){
+            let val = value.trim()
+            this.$store.commit('SET_TERMINO', val)
+         }
+      },
    },
    methods:{
       sendData(){
-         console.log('medos');
+         if(this.termino == ''){
+            return null
+         }
+         this.$router.push({name:'search'})
       }
    }
 }
